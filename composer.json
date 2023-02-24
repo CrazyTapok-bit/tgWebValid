@@ -1,0 +1,20 @@
+{
+  "name": "tg/webvalid",
+	"license": "MIT",
+	"description": "",
+	"keywords": [],
+	"authors": [
+		{
+			"name": "Сергій Засадинський",
+			"email": "main.profile.mail@gmail.com"
+		}
+	],
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "TgWebValid\\": "src/"
+    }
+  }
+}
