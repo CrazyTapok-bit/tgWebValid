@@ -1,4 +1,4 @@
-# TgWebValid допомагає перевірити даних з поля Telegram.WebApp.initData на PHP
+# TgWebValid допомагає перевірити дані з поля Telegram.WebApp.initData на PHP
 [![Остання версія](https://img.shields.io/packagist/v/tg/tgWebValid)](https://packagist.org/packages/tg/tgwebvalid)
 [![Ліцензія](https://img.shields.io/packagist/l/tg/tgwebvalid)](https://packagist.org/packages/tg/tgwebvalid)
 
@@ -13,7 +13,7 @@
 ## Встановлення TgWebValid
 Встановити пакет tgWebValid можна через пакетний менеджер [composer](https://getcomposer.org/) виконавши команду 
 ```bash
-composer require tg/tgwebwalid
+composer require tg/tgwebvalid
 ```
 Ми йдемо слідом за технологіями, тому пакет починає працювати з версії `PHP >= 8.0.2`.
 
