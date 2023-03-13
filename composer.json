@@ -1,20 +1,23 @@
 {
-  "name": "tg/tgwebvalid",
-	"license": "MIT",
-	"description": "",
-	"keywords": [],
-	"authors": [
-		{
-			"name": "Сергій Засадинський",
-			"email": "main.profile.mail@gmail.com"
-		}
-	],
-  "config": {
-    "sort-packages": true
-  },
-  "autoload": {
-    "psr-4": {
-      "TgWebValid\\": "src/"
+    "name": "tg/tgwebvalid",
+    "license": "MIT",
+    "description": "TgWebValid допомагає перевірити дані з поля Telegram.WebApp.initData на PHP",
+    "keywords": ["tgwebvalid"],
+    "authors": [
+        {
+            "name": "Сергій Засадинський",
+            "email": "main.profile.mail@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">= 8.0.2"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "TgWebValid\\": "src/"
+        }
     }
-  }
 }
