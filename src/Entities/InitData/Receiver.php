@@ -1,10 +1,10 @@
 <?php
 
-namespace TgWebValid\Entities;
+namespace TgWebValid\Entities\InitData;
 
-use TgWebValid\Make;
+use TgWebValid\Entities\Make;
 
-class TgWebReceiver extends Make
+class Receiver extends Make
 {
     /**
      * A unique identifier for the user or bot.

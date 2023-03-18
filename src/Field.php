@@ -2,9 +2,9 @@
 
 namespace TgWebValid;
 
-use TgWebValid\Entities\TgWebChat;
-use TgWebValid\Entities\TgWebReceiver;
-use TgWebValid\Entities\TgWebUser;
+use TgWebValid\Entities\InitData\Chat;
+use TgWebValid\Entities\InitData\Receiver;
+use TgWebValid\Entities\InitData\User;
 
 class Field
 {
@@ -13,9 +13,9 @@ class Field
         public mixed $value
     ) {
         $this->value = match ($name) {
-            'user'     => new TgWebUser(json_decode($this->value, true)),
-            'receiver' => new TgWebReceiver(json_decode($this->value, true)),
-            'chat'     => new TgWebChat(json_decode($this->value, true)),
+            'user'     => new User(json_decode($this->value, true)),
+            'receiver' => new Receiver(json_decode($this->value, true)),
+            'chat'     => new Chat(json_decode($this->value, true)),
             default    => $this->value
         };
     }
