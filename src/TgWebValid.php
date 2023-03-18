@@ -2,6 +2,8 @@
 
 namespace TgWebValid;
 
+use TgWebValid\Entities\InitData;
+
 class TgWebValid
 {
     public InitData $initData;
