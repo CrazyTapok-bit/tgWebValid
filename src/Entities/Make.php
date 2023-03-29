@@ -6,17 +6,14 @@ class Make
 {
     public function __construct(array $props)
     {
+        $getClass = get_class($this);
+
         foreach ($props as $prop => $value) {
-            $prop = $this->kebabCaseToCamelCase($prop);
-            if (!property_exists(get_class($this), $prop)) {
+            $prop = camelize($prop);
+            if (!property_exists($getClass, $prop)) {
                 continue;
             }
             $this->$prop = $value;
         }
-    }
-
-    protected function kebabCaseToCamelCase(string $str): string
-    {
-        return lcfirst(implode('', array_map('ucfirst', explode('_', $str))));
     }
 }
