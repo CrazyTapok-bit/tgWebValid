@@ -3,6 +3,10 @@
     "license": "MIT",
     "description": "TgWebValid допомагає перевірити дані з поля Telegram.WebApp.initData на PHP",
     "keywords": ["tgwebvalid"],
+    "support": {
+        "issues": "https://github.com/CrazyTapok-bit/tgWebValid/issues",
+        "source": "https://github.com/CrazyTapok-bit/tgWebValid"
+    },
     "authors": [
         {
             "name": "Сергій Засадинський",
@@ -16,6 +20,9 @@
         "sort-packages": true
     },
     "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
             "TgWebValid\\": "src/"
         }
