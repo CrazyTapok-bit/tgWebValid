@@ -3,13 +3,13 @@
 namespace TgWebValid;
 
 use TgWebValid\Entities\InitData;
-use TgWebValid\Entities\User;
+use TgWebValid\Entities\LoginWidget;
 
 class TgWebValid
 {
     public ?InitData $initData;
 
-    public ?User $user;
+    public ?LoginWidget $user;
 
     public function __construct(
         private string $token
@@ -38,7 +38,7 @@ class TgWebValid
 
     public function isLoginValid(array $user)
     {
-        $this->user = new User($user);
+        $this->user = new LoginWidget($user);
 
         $rawData = array_map(
             fn($value, $key)  => $key . '=' . $value,
