@@ -28,10 +28,7 @@ class TgWebValid
             $rawData
         )));
 
-        $data = implode("\n", array_filter(
-            $rawData,
-            fn ($item) => substr($item, 0, strlen('hash=')) !== 'hash='
-        ));
+        $data = implode("\n", $this->ridHash($rawData));
 
         $secretKey = hash_hmac('sha256', $this->token, 'WebAppData', true);
         $hash      = bin2hex(hash_hmac('sha256', $data, $secretKey, true));
@@ -51,14 +48,16 @@ class TgWebValid
 
         sort($rawData);
 
-        $data = implode("\n", array_filter(
-            $rawData,
-            fn ($item) => substr($item, 0, strlen('hash=')) !== 'hash='
-        ));
+        $data = implode("\n", $this->ridHash($rawData));
 
         $secretKey = hash('sha256', $this->token, true);
         $hash      = hash_hmac('sha256', $data, $secretKey);
 
         return 0 === strcmp($hash, $this->user->hash);
+    }
+
+    private function ridHash(array $array): array
+    {
+        return preg_grep('/^hash=/i', $array, PREG_GREP_INVERT);
     }
 }
