@@ -2,6 +2,8 @@
 
 namespace TgWebValid\Entities;
 
+use TgWebValid\Entities\Make\Make;
+
 class LoginWidget extends Make
 {
     /**

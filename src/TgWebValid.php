@@ -21,12 +21,23 @@ class TgWebValid
     {
         $rawData = explode('&', rawurldecode($initData));
 
-        sort($rawData);
-
-        $this->initData = new InitData(array_merge(...array_map(
-            fn ($item) => (new Field(...explode('=', $item)))->toArray(),
+        $rawData = array_merge(...array_map(
+            function($item) {
+                [$prop, $value] = explode('=', $item);
+                return [$prop => $value];
+            },
             $rawData
-        )));
+        ));
+
+        $this->initData = new InitData($rawData);
+
+        $rawData = array_map(
+            fn($value, $key)  => $key . '=' . $value,
+            $rawData,
+            array_keys($rawData)
+        );
+
+        sort($rawData);
 
         $data = implode("\n", $this->ridHash($rawData));
 

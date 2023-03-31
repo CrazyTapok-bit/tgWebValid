@@ -5,8 +5,9 @@ namespace TgWebValid\Entities;
 use TgWebValid\Entities\InitData\Chat;
 use TgWebValid\Entities\InitData\Receiver;
 use TgWebValid\Entities\InitData\User;
+use TgWebValid\Entities\Make\InitDataMake;
 
-class InitData extends Make
+class InitData extends InitDataMake
 {
     /**
      * Optional. A unique identifier for the Web App session, required for sending messages via the answerWebAppQuery method.
