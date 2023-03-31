@@ -2,7 +2,9 @@
 
 namespace TgWebValid\Entities;
 
-class User extends Make
+use TgWebValid\Entities\Make\Make;
+
+class LoginWidget extends Make
 {
     /**
      * A unique identifier for the user or bot.

@@ -3,13 +3,13 @@
 namespace TgWebValid;
 
 use TgWebValid\Entities\InitData;
-use TgWebValid\Entities\User;
+use TgWebValid\Entities\LoginWidget;
 
 class TgWebValid
 {
     public ?InitData $initData;
 
-    public ?User $user;
+    public ?LoginWidget $user;
 
     public function __construct(
         private string $token
@@ -21,12 +21,23 @@ class TgWebValid
     {
         $rawData = explode('&', rawurldecode($initData));
 
-        sort($rawData);
-
-        $this->initData = new InitData(array_merge(...array_map(
-            fn ($item) => (new Field(...explode('=', $item)))->toArray(),
+        $rawData = array_merge(...array_map(
+            function($item) {
+                [$prop, $value] = explode('=', $item);
+                return [$prop => $value];
+            },
             $rawData
-        )));
+        ));
+
+        $this->initData = new InitData($rawData);
+
+        $rawData = array_map(
+            fn($value, $key)  => $key . '=' . $value,
+            $rawData,
+            array_keys($rawData)
+        );
+
+        sort($rawData);
 
         $data = implode("\n", $this->ridHash($rawData));
 
@@ -38,7 +49,7 @@ class TgWebValid
 
     public function isLoginValid(array $user)
     {
-        $this->user = new User($user);
+        $this->user = new LoginWidget($user);
 
         $rawData = array_map(
             fn($value, $key)  => $key . '=' . $value,

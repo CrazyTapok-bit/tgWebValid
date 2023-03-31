@@ -2,7 +2,7 @@
 
 namespace TgWebValid\Entities\InitData;
 
-use TgWebValid\Entities\Make;
+use TgWebValid\Entities\Make\Make;
 
 class Receiver extends Make
 {
