@@ -53,9 +53,4 @@ class InitData extends InitDataMake
      * A hash of all passed parameters, which the bot server can use to check their validity.
      */
     public string $hash;
-
-    public function __construct(array $props)
-    {
-        parent::__construct($props);
-    }
 }
