@@ -1,6 +1,6 @@
 <?php
 
-namespace TgWebValid\Entities\Make;
+namespace TgWebValid\Make;
 
 abstract class Make
 {

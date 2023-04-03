@@ -1,12 +1,12 @@
 <?php
 
-namespace TgWebValid\Entities\Make;
+namespace TgWebValid\Make;
 
 use TgWebValid\Entities\InitData\Chat;
 use TgWebValid\Entities\InitData\Receiver;
 use TgWebValid\Entities\InitData\User;
 
-abstract class InitDataMake extends Make
+abstract class InitData extends Make
 {
     public function __construct(array $props)
     {
