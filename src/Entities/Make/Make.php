@@ -2,18 +2,19 @@
 
 namespace TgWebValid\Entities\Make;
 
-class Make
+abstract class Make
 {
     public function __construct(array $props)
     {
-        $getClass = get_class($this);
-
         foreach ($props as $prop => $value) {
-            $prop = camelize($prop);
-            if (!property_exists($getClass, $prop)) {
-                continue;
-            }
-            $this->$prop = $value;
+            $this->setProperty(camelize($prop), $value);
+        }
+    }
+
+    protected function setProperty(string $property, mixed $value): void
+    {
+        if (property_exists(get_class($this), $property)) {
+            $this->$property = $value;
         }
     }
 }
