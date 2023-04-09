@@ -1,7 +1,7 @@
 {
     "name": "tg/tgwebvalid",
     "license": "MIT",
-    "description": "TgWebValid допомагає перевірити дані з поля Telegram.WebApp.initData на PHP",
+    "description": "Бібліотека TgWebValid призначена для перевірки достовірності даних, які надходять від користувачів Telegram WebApp та Telegram Login Widget",
     "keywords": ["tgwebvalid"],
     "support": {
         "issues": "https://github.com/CrazyTapok-bit/tgWebValid/issues",
