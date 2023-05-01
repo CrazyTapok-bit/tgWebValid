@@ -13,6 +13,9 @@
             "email": "main.profile.mail@gmail.com"
         }
     ],
+    "scripts": {
+        "test": "phpunit --colors=always"
+    },
     "require": {
         "php": ">= 8.0.2"
     },
@@ -26,5 +29,13 @@
         "psr-4": {
             "TgWebValid\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TgWebValid\\Test\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
     }
 }

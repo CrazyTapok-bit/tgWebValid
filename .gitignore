@@ -3,3 +3,5 @@
 /.vscode
 composer.lock
 index.php
+phpunit.xml
+.phpunit.result.cache
