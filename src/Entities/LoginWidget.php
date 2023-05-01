@@ -21,17 +21,17 @@ class LoginWidget extends Make
     /**
      * Optional. Last name of the user.
      */
-    public ?string $lastName;
+    public ?string $lastName = null;
 
     /**
      * Optional. Username of the user.
      */
-    public ?string $username;
+    public ?string $username = null;
 
     /**
      * Optional. URL of the user’s profile photo. The photo can be in .jpeg or .svg formats.
      */
-    public ?string $photoUrl;
+    public ?string $photoUrl = null;
 
     /**
      * Unix time when the form was opened.
