@@ -1,6 +1,6 @@
 <?php
 
-namespace TgWebValid\Test;
+namespace TgWebValid\Test\Entities;
 
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\LoginWidget;
