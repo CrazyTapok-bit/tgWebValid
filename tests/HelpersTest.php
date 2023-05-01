@@ -10,5 +10,7 @@ class HelpersTest extends TestCase
     {
         $this->assertEquals('', camelize(''));
         $this->assertEquals('snakeCase', camelize('snake_case'));
+        $this->assertEquals('snakeCase', camelize('snAke_CaSe'));
+        $this->assertEquals('snakeCase', camelize('_snAke__CaSe_'));
     }
 }

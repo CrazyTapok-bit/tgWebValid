@@ -9,6 +9,6 @@ if (!function_exists('camelize')) {
      */
     function camelize(string $str): string
     {
-        return lcfirst(implode('', array_map('ucfirst', explode('_', $str))));
+        return lcfirst(str_replace('_', '', mb_convert_case($str, MB_CASE_TITLE, 'UTF-8')));
     }
 }
