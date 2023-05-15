@@ -12,7 +12,7 @@ class InitData extends MakeInitData
     /**
      * Optional. A unique identifier for the Web App session, required for sending messages via the answerWebAppQuery method.
      */
-    public ?string $queryId;
+    public ?string $queryId = null;
 
     /**
      * An object containing data about the current user.
