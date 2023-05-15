@@ -15,7 +15,7 @@ class InitDataValidator extends Validator
         $rawData = $this->sortData($rawData);
         $rawData = $this->ridHash($rawData);
         $data    = $this->implodeData($rawData);
-        $hash    = $this->calculateHash($data);
+        $hash    = hashInitData($data, $this->token);
 
         if (0 === strcmp($hash, $initData->hash)) {
             return $initData;
@@ -35,11 +35,5 @@ class InitDataValidator extends Validator
             },
             $rawData
         ));
-    }
-
-    private function calculateHash(string $data): string
-    {
-        $secretKey = hash_hmac('sha256', $this->token, 'WebAppData', true);
-        return bin2hex(hash_hmac('sha256', $data, $secretKey, true));
     }
 }
