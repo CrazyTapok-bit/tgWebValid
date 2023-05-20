@@ -17,7 +17,7 @@ class InitDataValidator extends Validator
         $data    = $this->implode($rawData);
         $hash    = hashInitData($data, $this->token);
 
-        if (0 !== strcmp($hash, $initData->hash)) {
+        if (0 === strcmp($hash, $initData->hash)) {
             return $initData;
         }
 

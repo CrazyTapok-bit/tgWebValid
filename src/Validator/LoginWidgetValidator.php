@@ -16,7 +16,7 @@ class LoginWidgetValidator extends Validator
         $data    = $this->implode($rawData);
         $hash    = hashLoginWidget($data, $this->token);
 
-        if (0 !== strcmp($hash, $user->hash)) {
+        if (0 === strcmp($hash, $user->hash)) {
             return $user;
         }
 
