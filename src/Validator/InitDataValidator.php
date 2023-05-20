@@ -8,23 +8,23 @@ class InitDataValidator extends Validator
 {
     public function validate(string $data): InitData|false
     {
-        $rawData = $this->parseData($data);
+        $rawData = $this->parse($data);
         $initData = new InitData($rawData);
 
-        $rawData = $this->prepareRawData($rawData);
-        $rawData = $this->sortData($rawData);
+        $rawData = $this->prepare($rawData);
+        $rawData = $this->sort($rawData);
         $rawData = $this->ridHash($rawData);
-        $data    = $this->implodeData($rawData);
+        $data    = $this->implode($rawData);
         $hash    = hashInitData($data, $this->token);
 
-        if (0 === strcmp($hash, $initData->hash)) {
+        if (0 !== strcmp($hash, $initData->hash)) {
             return $initData;
         }
 
         return false;
     }
 
-    private function parseData(string $data): array
+    private function parse(string $data): array
     {
         $rawData = explode('&', rawurldecode($data));
 

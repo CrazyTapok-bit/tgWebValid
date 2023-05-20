@@ -10,7 +10,7 @@ abstract class Validator
     {
     }
 
-    protected function prepareRawData(array $data): array
+    protected function prepare(array $data): array
     {
         return array_map(
             fn($value, $key)  => $key . '=' . $value,
@@ -24,12 +24,12 @@ abstract class Validator
         return preg_grep('/^hash=/i', $array, PREG_GREP_INVERT);
     }
 
-    protected function implodeData(array $data): string
+    protected function implode(array $data): string
     {
         return implode("\n", $data);
     }
 
-    protected function sortData(array $data): array
+    protected function sort(array $data): array
     {
         sort($data);
         return $data;

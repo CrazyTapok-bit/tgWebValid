@@ -10,13 +10,13 @@ class LoginWidgetValidator extends Validator
     {
         $user = new LoginWidget($data);
 
-        $rawData = $this->prepareRawData($data);
-        $rawData = $this->sortData($rawData);
+        $rawData = $this->prepare($data);
+        $rawData = $this->sort($rawData);
         $rawData = $this->ridHash($rawData);
-        $data    = $this->implodeData($rawData);
+        $data    = $this->implode($rawData);
         $hash    = hashLoginWidget($data, $this->token);
 
-        if (0 === strcmp($hash, $user->hash)) {
+        if (0 !== strcmp($hash, $user->hash)) {
             return $user;
         }
 
