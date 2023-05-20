@@ -38,4 +38,9 @@ abstract class Validator
         sort($data);
         return $data;
     }
+
+    public function matchHash(string $hash1, string $hash2): bool
+    {
+        return 0 === strcmp($hash1, $hash2);
+    }
 }
