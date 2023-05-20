@@ -10,7 +10,7 @@ abstract class Validator
     {
     }
 
-    protected function prepareRawData(array $data): array
+    public function prepare(array $data): array
     {
         return array_map(
             fn($value, $key)  => $key . '=' . $value,
@@ -19,17 +19,21 @@ abstract class Validator
         );
     }
 
-    protected function ridHash(array $array): array
+    public function ridHash(array $data): array
     {
-        return preg_grep('/^hash=/i', $array, PREG_GREP_INVERT);
+        if ($withoutHash = preg_grep('/^hash=/i', $data, PREG_GREP_INVERT)) {
+            return array_values($withoutHash);
+        }
+
+        return $data;
     }
 
-    protected function implodeData(array $data): string
+    public function implode(array $data): string
     {
         return implode("\n", $data);
     }
 
-    protected function sortData(array $data): array
+    public function sort(array $data): array
     {
         sort($data);
         return $data;
