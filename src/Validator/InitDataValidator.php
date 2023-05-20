@@ -17,11 +17,11 @@ class InitDataValidator extends Validator
         $data    = $this->implode($rawData);
         $hash    = hashInitData($data, $this->token);
 
-        if (0 === strcmp($hash, $initData->hash)) {
-            return $initData;
+        if (!$this->matchHash($hash, $initData->hash)) {
+            return false;
         }
 
-        return false;
+        return $initData;
     }
 
     public function parse(string $data): array
