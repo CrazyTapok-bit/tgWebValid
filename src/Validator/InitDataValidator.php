@@ -24,7 +24,7 @@ class InitDataValidator extends Validator
         return false;
     }
 
-    private function parse(string $data): array
+    public function parse(string $data): array
     {
         $rawData = explode('&', rawurldecode($data));
 
