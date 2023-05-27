@@ -24,6 +24,9 @@ class InitDataValidator extends Validator
         return $initData;
     }
 
+    /**
+     * @return array<string, int|string|bool>
+     */
     public function parse(string $data): array
     {
         $rawData = explode('&', rawurldecode($data));

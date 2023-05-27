@@ -14,7 +14,8 @@
         }
     ],
     "scripts": {
-        "test": "phpunit --colors=always"
+        "test": "phpunit --colors=always",
+        "analyze": "phpstan analyze --ansi"
     },
     "require": {
         "php": ">= 8.0.2"
@@ -36,6 +37,7 @@
         }
     },
     "require-dev": {
+        "phpstan/phpstan": "^1.10",
         "phpunit/phpunit": "^9.6"
     }
 }

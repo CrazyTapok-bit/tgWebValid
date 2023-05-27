@@ -7,7 +7,10 @@ use TgWebValid\Entities\InitData\Receiver;
 
 class ReceiverTest extends TestCase
 {
-    public function testMake()
+    /**
+     * @return array<string, int|string>
+     */
+    public function testMake(): array
     {
         $data = [
             'id'         => 123456789,
@@ -24,8 +27,9 @@ class ReceiverTest extends TestCase
 
     /**
      * @depends testMake
+     * @param array<string, int|string> $data
      */
-    public function testMakeFull(array $data)
+    public function testMakeFull(array $data): void
     {
         $data['is_bot']     = false;
         $data['last_name']  = 'Засадинський';
@@ -35,10 +39,10 @@ class ReceiverTest extends TestCase
 
         $receiver = new Receiver($data);
 
-        $this->assertFalse($data['is_bot'], $receiver->isBot);
+        $this->assertFalse($receiver->isBot);
         $this->assertEquals($data['last_name'], $receiver->lastName);
         $this->assertEquals($data['username'], $receiver->username);
-        $this->assertTrue($data['is_premium'], $receiver->isPremium);
+        $this->assertTrue($receiver->isPremium);
         $this->assertEquals($data['photo_url'], $receiver->photoUrl);
     }
 }

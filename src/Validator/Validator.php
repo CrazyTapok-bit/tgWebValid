@@ -10,6 +10,10 @@ abstract class Validator
     {
     }
 
+    /**
+     * @param array<string, int|string|bool> $data
+     * @return array<int, string>
+     */
     public function prepare(array $data): array
     {
         return array_map(
@@ -19,6 +23,10 @@ abstract class Validator
         );
     }
 
+    /**
+     * @param array<int, string> $data
+     * @return array<int, string>
+     */
     public function ridHash(array $data): array
     {
         if ($withoutHash = preg_grep('/^hash=/i', $data, PREG_GREP_INVERT)) {
@@ -28,11 +36,18 @@ abstract class Validator
         return $data;
     }
 
+    /**
+     * @param array<int, string> $data
+     */
     public function implode(array $data): string
     {
         return implode("\n", $data);
     }
 
+    /**
+     * @param array<int, string> $data
+     * @return array<int, string>
+     */
     public function sort(array $data): array
     {
         sort($data);

@@ -7,7 +7,10 @@ use TgWebValid\Entities\InitData\User;
 
 class UserTest extends TestCase
 {
-    public function testMake()
+    /**
+     * @return array<string, int|string>
+     */
+    public function testMake(): array
     {
         $data = [
             'id'         => 1082294585,
@@ -30,8 +33,9 @@ class UserTest extends TestCase
 
     /**
      * @depends testMake
+     * @param array<string, int|string> $data
      */
-    public function testMakeFull(array $data)
+    public function testMakeFull(array $data): void
     {
         $data['is_bot']        = true;
         $data['last_name']     = 'Засадинський';

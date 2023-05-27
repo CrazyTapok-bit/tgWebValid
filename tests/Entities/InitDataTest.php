@@ -9,7 +9,10 @@ use TgWebValid\Entities\InitData\User;
 
 class InitDataTest extends TestCase
 {
-    public function testMake()
+    /**
+     * @return array<string, int|string|bool>
+     */
+    public function testMake(): array
     {
         $data = [
             'auth_date' => 1676806993,
@@ -32,8 +35,9 @@ class InitDataTest extends TestCase
 
     /**
      * @depends testMake
+     * @param array<string, int|string|bool> $data
      */
-    public function testMakeUser(array $data)
+    public function testMakeUser(array $data): void
     {
         $data['user'] = json_encode([]);
 
@@ -44,8 +48,9 @@ class InitDataTest extends TestCase
 
     /**
      * @depends testMake
+     * @param array<string, int|string|bool> $data
      */
-    public function testMakeReceiver(array $data)
+    public function testMakeReceiver(array $data): void
     {
         $data['receiver'] = json_encode([]);
 
@@ -56,8 +61,9 @@ class InitDataTest extends TestCase
 
     /**
      * @depends testMake
+     * @param array<string, int|string|bool> $data
      */
-    public function testMakeChat(array $data)
+    public function testMakeChat(array $data): void
     {
         $data['chat'] = json_encode([]);
 
@@ -68,8 +74,9 @@ class InitDataTest extends TestCase
 
     /**
      * @depends testMake
+     * @param array<string, int|string|bool> $data
      */
-    public function testMakeFull(array $data)
+    public function testMakeFull(array $data): void
     {
         $data['query_id']       = 'AAE5gYJAAAAAADmBgkBAeZUJ';
         $data['start_param']    = 'start';
