@@ -5,7 +5,7 @@ namespace TgWebValid\Test\Entities\InitData;
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\InitData\Receiver;
 
-class ReceiverTest extends TestCase
+final class ReceiverTest extends TestCase
 {
     /**
      * @return array<string, int|string>

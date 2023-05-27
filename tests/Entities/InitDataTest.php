@@ -7,7 +7,7 @@ use TgWebValid\Entities\InitData\Chat;
 use TgWebValid\Entities\InitData\Receiver;
 use TgWebValid\Entities\InitData\User;
 
-class InitDataTest extends TestCase
+final class InitDataTest extends TestCase
 {
     /**
      * @return array<string, int|string|bool>

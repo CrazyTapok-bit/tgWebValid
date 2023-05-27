@@ -4,7 +4,7 @@ namespace TgWebValid\Validator;
 
 use TgWebValid\Entities\InitData;
 
-class InitDataValidator extends Validator
+final class InitDataValidator extends Validator
 {
     public function validate(string $data): InitData|false
     {

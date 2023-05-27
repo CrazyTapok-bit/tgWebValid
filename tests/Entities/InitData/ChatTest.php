@@ -5,7 +5,7 @@ namespace TgWebValid\Test\Entities\InitData;
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\InitData\Chat;
 
-class ChatTest extends TestCase
+final class ChatTest extends TestCase
 {
     /**
      * @return array<string, int|string>

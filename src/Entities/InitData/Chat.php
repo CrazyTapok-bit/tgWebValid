@@ -4,7 +4,7 @@ namespace TgWebValid\Entities\InitData;
 
 use TgWebValid\Make\Make;
 
-class Chat extends Make
+final class Chat extends Make
 {
     /**
      * Unique identifier for this chat. This number may have more than 32 significant bits and some
