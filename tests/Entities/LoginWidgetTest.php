@@ -7,7 +7,10 @@ use TgWebValid\Entities\LoginWidget;
 
 class LoginWidgetTest extends TestCase
 {
-    public function testMake()
+    /**
+     * @return array<string, int|string>
+     */
+    public function testMake(): array
     {
         $data = [
             'auth_date'  => 1679130118,
@@ -31,8 +34,9 @@ class LoginWidgetTest extends TestCase
 
     /**
      * @depends testMake
+     * @param array<string, int|string> $data
      */
-    public function testMakeFull(array $data)
+    public function testMakeFull(array $data): void
     {
         $data['last_name'] = 'Засадинський';
         $data['photo_url'] = 'https://t.me/i/userpic/320/7gMg9ZfoSzMQcLwYiEj4rLAofXXn0wOBV9HXGb6c1T0.jpg';

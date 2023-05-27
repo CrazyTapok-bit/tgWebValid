@@ -6,6 +6,9 @@ use TgWebValid\Entities\LoginWidget;
 
 class LoginWidgetValidator extends Validator
 {
+    /**
+     * @param array<string, int|string|bool> $data
+     */
     public function validate(array $data): LoginWidget|false
     {
         $user = new LoginWidget($data);

@@ -21,6 +21,9 @@ class TgWebValid
         return $validator->validate($initData);
     }
 
+    /**
+     * @param array<string, int|string|bool> $user
+     */
     public function validateLoginWidget(array $user): LoginWidget|false
     {
         $validator = new LoginWidgetValidator($this->token);

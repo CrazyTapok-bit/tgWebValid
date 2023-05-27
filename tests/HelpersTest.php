@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class HelpersTest extends TestCase
 {
-    public function testCamelize()
+    public function testCamelize(): void
     {
         $this->assertEquals('', camelize(''));
         $this->assertEquals('snakeCase', camelize('snake_case'));

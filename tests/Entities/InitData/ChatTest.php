@@ -7,7 +7,10 @@ use TgWebValid\Entities\InitData\Chat;
 
 class ChatTest extends TestCase
 {
-    public function testMake()
+    /**
+     * @return array<string, int|string>
+     */
+    public function testMake(): array
     {
         $data = [
             'id'    => 123456789,
@@ -28,8 +31,9 @@ class ChatTest extends TestCase
 
     /**
      * @depends testMake
+     * @param array<string, int|string> $data
      */
-    public function testMakeFull(array $data)
+    public function testMakeFull(array $data): void
     {
         $data['username']  = 'CrazyTapokUA';
         $data['photo_url'] = 'https://t.me/i/userpic/320/7gMg9ZfoSzMQcLwYiEj4rLAofXXn0wOBV9HXGb6c1T0.jpg';
