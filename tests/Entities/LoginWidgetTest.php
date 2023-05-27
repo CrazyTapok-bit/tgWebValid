@@ -5,7 +5,7 @@ namespace TgWebValid\Test\Entities;
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\LoginWidget;
 
-class LoginWidgetTest extends TestCase
+final class LoginWidgetTest extends TestCase
 {
     /**
      * @return array<string, int|string>

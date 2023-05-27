@@ -4,7 +4,7 @@ namespace TgWebValid\Test;
 
 use PHPUnit\Framework\TestCase;
 
-class HelpersTest extends TestCase
+final class HelpersTest extends TestCase
 {
     public function testCamelize(): void
     {

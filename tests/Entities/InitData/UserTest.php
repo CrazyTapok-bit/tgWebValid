@@ -5,7 +5,7 @@ namespace TgWebValid\Test\Entities\InitData;
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\InitData\User;
 
-class UserTest extends TestCase
+final class UserTest extends TestCase
 {
     /**
      * @return array<string, int|string>

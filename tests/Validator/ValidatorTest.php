@@ -5,7 +5,7 @@ namespace TgWebValid\Test\Validator;
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Validator\Validator;
 
-class ValidatorTest extends TestCase
+final class ValidatorTest extends TestCase
 {
     protected Validator $validator;
 

@@ -14,7 +14,7 @@ class InitDataValidatorTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->validator = new class ('5854973744:AAFnq4HoybEzqCJ-8HYHY_zlvkc_-H-kXq4') extends InitDataValidator {};
+        $this->validator = new InitDataValidator ('5854973744:AAFnq4HoybEzqCJ-8HYHY_zlvkc_-H-kXq4');
     }
 
     public function testParse(): void

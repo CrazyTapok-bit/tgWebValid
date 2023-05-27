@@ -7,7 +7,7 @@ use TgWebValid\Entities\LoginWidget;
 use TgWebValid\Validator\InitDataValidator;
 use TgWebValid\Validator\LoginWidgetValidator;
 
-class TgWebValid
+final class TgWebValid
 {
     public function __construct(
         private string $token

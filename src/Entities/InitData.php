@@ -7,7 +7,7 @@ use TgWebValid\Entities\InitData\Receiver;
 use TgWebValid\Entities\InitData\User;
 use TgWebValid\Make\InitData as MakeInitData;
 
-class InitData extends MakeInitData
+final class InitData extends MakeInitData
 {
     /**
      * Optional. A unique identifier for the Web App session, required for sending messages via the answerWebAppQuery method.

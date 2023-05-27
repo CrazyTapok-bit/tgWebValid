@@ -4,7 +4,7 @@ namespace TgWebValid\Entities\InitData;
 
 use TgWebValid\Make\Make;
 
-class User extends Make
+final class User extends Make
 {
     /**
      * A unique identifier for the user or bot.

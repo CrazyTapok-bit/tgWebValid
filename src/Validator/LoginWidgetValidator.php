@@ -4,7 +4,7 @@ namespace TgWebValid\Validator;
 
 use TgWebValid\Entities\LoginWidget;
 
-class LoginWidgetValidator extends Validator
+final class LoginWidgetValidator extends Validator
 {
     /**
      * @param array<string, int|string|bool> $data
