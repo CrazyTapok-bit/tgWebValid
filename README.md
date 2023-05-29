@@ -4,6 +4,12 @@
 [![Latest version](https://img.shields.io/packagist/v/tg/tgWebValid)](https://packagist.org/packages/tg/tgwebvalid)
 [![License](https://img.shields.io/packagist/l/tg/tgwebvalid)](https://packagist.org/packages/tg/tgwebvalid)
 
+[![StandWithUkraine](https://raw.githubusercontent.com/CrazyTapok-bit/tgWebValid/master/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
+[![StandWithUkraine](https://raw.githubusercontent.com/CrazyTapok-bit/tgWebValid/master/badges/RussianWarship.svg)](https://stand-with-ukraine.pp.ua)
+
+[![StandWithUkraine](https://raw.githubusercontent.com/CrazyTapok-bit/tgWebValid/master/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
+
+## Про нас
 Перевірка даних відбувається шляхом шифрування отриманих, необроблених, даних користувача та звірка з хешем який нам надає телеграм. Провалену перевірку можна прирівняти з можливою спробою обходу або злому системи.
 
 Бібліотека дозволяє здійснити перевірку деяких типів користувачів. А саме, перевірка даних з поля `window.Telegram.WebApp.initData`, а також перевірка користувача який здійснює логін за допомогою [Telegram Login Widget](https://core.telegram.org/widgets/login)
