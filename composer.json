@@ -1,12 +1,31 @@
 {
     "name": "tg/tgwebvalid",
     "license": "MIT",
-    "description": "Бібліотека TgWebValid призначена для перевірки достовірності даних, які надходять від користувачів Telegram WebApp та Telegram Login Widget",
-    "keywords": ["tgwebvalid"],
+    "description": "This library performs Telegram user authentication via web app and login widget",
+    "keywords": [
+        "tgwebvalid",
+        "telegram",
+        "telegram auth",
+        "telegram login",
+        "telegram initData",
+        "initData",
+        "telegram webapp",
+        "webapp",
+        "telegram authentication",
+        "telegram authorization",
+        "telegram login widget",
+        "login widget",
+        "telegram validate",
+        "telegram validation",
+        "telegram data validation",
+        "telegram input validation",
+        "telegram web verification"
+    ],
     "support": {
         "issues": "https://github.com/CrazyTapok-bit/tgWebValid/issues",
         "source": "https://github.com/CrazyTapok-bit/tgWebValid",
-        "forum": "https://github.com/CrazyTapok-bit/tgWebValid/discussions"
+        "forum": "https://github.com/CrazyTapok-bit/tgWebValid/discussions",
+        "docs": "https://github.com/CrazyTapok-bit/tgWebValid/blob/master/README.md"
     },
     "authors": [
         {

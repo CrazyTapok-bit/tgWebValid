@@ -1,32 +1,32 @@
-# Бібліотека TgWebValid призначена для перевірки достовірності даних, які надходять від користувачів Telegram WebApp та Telegram Login Widget
+# This library performs Telegram user authentication via web app and login widget
 [![Testing Status](https://github.com/CrazyTapok-bit/tgWebValid/workflows/PHP%20CI/badge.svg)](https://github.com/CrazyTapok-bit/tgWebValid/actions)
 [![Minimum PHP Version](https://img.shields.io/packagist/dependency-v/tg/tgwebvalid/php)](https://packagist.org/packages/tg/tgwebvalid)
 [![Latest version](https://img.shields.io/packagist/v/tg/tgWebValid)](https://packagist.org/packages/tg/tgwebvalid)
 [![License](https://img.shields.io/packagist/l/tg/tgwebvalid)](https://packagist.org/packages/tg/tgwebvalid)
 
-[![StandWithUkraine](https://raw.githubusercontent.com/CrazyTapok-bit/tgWebValid/master/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
-[![StandWithUkraine](https://raw.githubusercontent.com/CrazyTapok-bit/tgWebValid/master/badges/RussianWarship.svg)](https://stand-with-ukraine.pp.ua)
+[![StandWithUkraine](./badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
+[![StandWithUkraine](./badges/RussianWarship.svg)](https://stand-with-ukraine.pp.ua)
 
-[![StandWithUkraine](https://raw.githubusercontent.com/CrazyTapok-bit/tgWebValid/master/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
+[![StandWithUkraine](./StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
 
-## Про нас
-Перевірка даних відбувається шляхом шифрування отриманих, необроблених, даних користувача та звірка з хешем який нам надає телеграм. Провалену перевірку можна прирівняти з можливою спробою обходу або злому системи.
+## About TgWebValid
+User authentication occurs by encrypting the received, raw, user data and comparing it with the hash provided by the telegram. A failed check can be equated with a possible attempt to bypass or hack the system.
 
-Бібліотека дозволяє здійснити перевірку деяких типів користувачів. А саме, перевірка даних з поля `window.Telegram.WebApp.initData`, а також перевірка користувача який здійснює логін за допомогою [Telegram Login Widget](https://core.telegram.org/widgets/login)
+The library verifies users [Telegram Login Widget](https://core.telegram.org/widgets/login) and [Telegram WebApp](https://core.telegram.org/bots/webapps#initializing-web-apps)
 
-`ПОПЕРЕДЖЕННЯ`: Даним із цих полів не можна довіряти. Ви повинні використовувати їх лише на сервері бота і лише після їх перевірки.
+`WARNING`: Use user data only after successful authentication
 
-Щоб отримати змогу швидко та безпечно перевірити дані, рекомендуємо виконати наступні дії
+To quickly and safely verify a user, we recommend following a few simple steps
 
-## Встановлення TgWebValid
-Встановити бібліотеку TgWebValid можна через пакетний менеджер [composer](https://getcomposer.org/) виконавши команду 
+## Installation
+You can install the TgWebValid library through the [composer](https://getcomposer.org/) package manager by executing the command 
 ```bash
 composer require tg/tgwebvalid --no-dev
 ```
-В результаті будуть встановлені лише залежності, необхідні для виконання вашого проекту в виробничому середовищі.
+With the `--no-dev` flag, only the dependencies needed to run your project in a production environment will be installed.
 
-## Як користуватись
-Перед початком використання достатньо в конструктор класу TgWebValid передати токен від бота, від імені якого здійснюється перевірка.
+## Using
+The first thing you need to do is set the token of the telegram bot on behalf of which the authentication is performed in the constructor of the TgWebValid class. And store the result in a variable
 
 ```php
 <?php
@@ -35,85 +35,88 @@ use TgWebValid\TgWebValid;
 
 include './vendor/autoload.php';
 
-const TG_BOT_TOKEN = 'XXX-XXX-XXX';
-
-$tgWebValid = new TgWebValid(TG_BOT_TOKEN);
+$tgWebValid = new TgWebValid('XXX-XXX-XXX');
 ```
 
-Щоб виконати перевірку користувача який відкриває веб-додаток, вам слід скористатись методом `validateInitData`. Який аргументом приймає дані для обробки. У разі успішної перевірки, вам буде повернуто об'єкт `InitData` з даними, або `false` у разі провалу перевірки
-```php
-const INIT_DATA = 'query_id=...';
+Next, you need to decide on the type of authentication you need to do.
+* [WebApp authentication](#telegram-webapp-authentication)
+* [Login Widget authentication](#telegram-login-widget-authentication)
 
-$initData = $tgWebValid->validateInitData(INIT_DATA);
+## Telegram WebApp authentication
+To perform this type of verification, you should use the `validateInitData` method. Which argument accepts data for processing. If the validation is successful, you will be returned an `InitData` object with the data, or `false` if the validation fails
+
+```php
+$initData = $tgWebValid->validateInitData('query_id=...');
 
 if (!$initData) {
-    // провалена перевірка
+    // validation fails
 }
-```
 
-Якщо ж у вас є потреба перевірити користувача який здійснює вхід в систему за допомогою [Telegram Login Widget](https://core.telegram.org/widgets/login), вам слід скористатись методом `validateLoginWidget` який аргументом приймає необроблені дані користувача для перевірки. У разі успіху, вам буде повернуто об'єкт `LoginWidget` з даними користувача, або `false` у разі провалу перевірки
-```php
-const LOGIN_USER_DATA = [
-    'auth_date' => 1679130118,
-    'first_name' => 'Сергій',
-    // ... та решта полів
-];
+/**
+ * The initData object can contain the following data:
+ */
 
-$loginWidget = $tgWebValid->validateLoginWidget(LOGIN_USER_DATA);
+// Unix time opening a web application
+$initData->authDate;
 
-if (!$loginWidget) {
-    // провалена перевірка
-}
-```
-У разі успішного проходження перевірки користувач вважається верифікованим та вірним. Тому можемо спокійно користуватись його даними.
-
-Об'єкт `InitData` може містити наступні дані:
-```php
-// Об'єкт, що містить дані про поточного користувача
+// An object containing data about the current user
 $initData->user;
 
-// Об’єкт, що містить дані про чат-партнера поточного користувача в чаті
+// May contain a chat partner data object
 $initData->receiver;
 
-// Об’єкт, що містить дані про чат
+// May contain an object with chat data
 $initData->chat;
 
-// та багато іншого
+// and other data
 ```
+`Note`. Certain data is present depending on the situation, so sometimes it can be `null` instead of data or a data object. More details in the [Telegram official documentation](https://core.telegram.org/bots/webapps#webappinitdata)
 
-Об'єкт `LoginWidget` може містити такі дані як:
+## Telegram Login Widget authentication
+To perform this type of check, you should use the `validateLoginWidget` method. Which argument accepts an array with raw user data. You will be returned a `LoginWidget` object with the data, or `false` if the validation fails
 ```php
-// Токен користувача
+$loginWidget = $tgWebValid->validateLoginWidget([
+    'auth_date' => 1679130118,
+    'first_name' => 'Сергій',
+    // other fields
+]);
+
+if (!$loginWidget) {
+    // validation fails
+}
+
+/**
+ * The LoginWidget object can contain the following data:
+ */
+
+// User token
 $loginWidget->id;
 
-// Ім'я користувача
+// User first name
 $loginWidget->firstName;
 
-// Прізвище користувача
-$loginWidget->lastName;
-
-// Нік користувача
+// Username
 $loginWidget->username;
 
-// Посилання на фото профілю
+// Link to profile photo
 $loginWidget->photoUrl;
 
-// Unix час авторизації
+// Unix authorization time
 $loginWidget->authDate;
 
-// та інші
+// and other data
+
 ```
+`Note`. Certain data is present depending on the situation, so sometimes it can be `null` instead of data or a data object.
 
-Зверніть увагу що певні дані присутні в залежності від ситуації, тому інколи можуть мати значення null замість даних, або об'єкта даних. Більш детальніше можна ознайомитись в [офіційній документації Telegram](https://core.telegram.org/bots/webapps#webappinitdata)
+## Additionally
+Our library is autonomous, so it can be used in any frameworks, or without them.
 
-## Додатково
-Наша бібліотека автономна, тому може використовуватись в будь-яких фреймворках, або без них.
+## Security
+If you discover a security vulnerability in TgWebValid, please [create an issue](https://github.com/CrazyTapok-bit/tgWebValid/issues) with a detailed description. All security vulnerabilities will be fixed immediately. Pull requests are also welcome.
 
-## Безпека
-Якщо ви виявите вразливість у безпеці TgWebValid, ми просимо [створити запит](https://github.com/CrazyTapok-bit/tgWebValid/issues) з детальним описом. Усі вразливості системи безпеки будуть негайно усунені.
+## Assistance
+We will be glad if you join the development and improvement of the project. You can [create an issue](https://github.com/CrazyTapok-bit/tgWebValid/issues) and/or a pull-request
 
-## Сприяння
-Будемо раді якщо ви долучитесь до розвитку та покращеню проекта. Для початку можна [створити запит](https://github.com/CrazyTapok-bit/tgWebValid/issues), або клонувати репозиторій та запропонувати свої зміни
-
-## Ліцензія
-TgWebValid - це програмне забезпечення з відкритим вихідним кодом, доступне за ліцензією [MIT](LICENSE). Перегляньте [файл ліцензії](LICENSE) для отримання додаткової інформації
+## License
+TgWebValid - is open source software available under the [MIT](LICENSE). See the [license file](LICENSE) for more information.
