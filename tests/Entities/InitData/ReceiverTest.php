@@ -21,6 +21,11 @@ final class ReceiverTest extends TestCase
 
         $this->assertEquals($data['id'], $receiver->id);
         $this->assertEquals($data['first_name'], $receiver->firstName);
+        $this->assertNull($receiver->isBot);
+        $this->assertNull($receiver->lastName);
+        $this->assertNull($receiver->username);
+        $this->assertNull($receiver->isPremium);
+        $this->assertNull($receiver->photoUrl);
 
         return $data;
     }
