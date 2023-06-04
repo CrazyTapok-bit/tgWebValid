@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\InitData\Chat;
 use TgWebValid\Entities\InitData\Receiver;
 use TgWebValid\Entities\InitData\User;
+use TgWebValid\Support\Arrayable;
 
 final class InitDataTest extends TestCase
 {
@@ -29,6 +30,7 @@ final class InitDataTest extends TestCase
         $this->assertNull($initData->queryId);
         $this->assertNull($initData->startParam);
         $this->assertNull($initData->canSendAfter);
+        $this->assertInstanceOf(Arrayable::class, $initData);
 
         return $data;
     }
@@ -44,6 +46,7 @@ final class InitDataTest extends TestCase
         $initData = new InitData($data);
 
         $this->assertInstanceOf(User::class, $initData->user);
+        $this->assertInstanceOf(Arrayable::class, $initData);
     }
 
     /**
@@ -57,6 +60,7 @@ final class InitDataTest extends TestCase
         $initData = new InitData($data);
 
         $this->assertInstanceOf(Receiver::class, $initData->receiver);
+        $this->assertInstanceOf(Arrayable::class, $initData);
     }
 
     /**
@@ -70,6 +74,7 @@ final class InitDataTest extends TestCase
         $initData = new InitData($data);
 
         $this->assertInstanceOf(Chat::class, $initData->chat);
+        $this->assertInstanceOf(Arrayable::class, $initData);
     }
 
     /**
@@ -87,5 +92,6 @@ final class InitDataTest extends TestCase
         $this->assertEquals($data['query_id'], $initData->queryId);
         $this->assertEquals($data['start_param'], $initData->startParam);
         $this->assertEquals($data['can_send_after'], $initData->canSendAfter);
+        $this->assertInstanceOf(Arrayable::class, $initData);
     }
 }

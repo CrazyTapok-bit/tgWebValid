@@ -4,6 +4,7 @@ namespace TgWebValid\Test\Entities\InitData;
 
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\InitData\Chat;
+use TgWebValid\Support\Arrayable;
 
 final class ChatTest extends TestCase
 {
@@ -25,6 +26,7 @@ final class ChatTest extends TestCase
         $this->assertEquals($data['title'], $chat->title);
         $this->assertNull($chat->username);
         $this->assertNull($chat->photoUrl);
+        $this->assertInstanceOf(Arrayable::class, $chat);
 
         return $data;
     }
@@ -42,5 +44,6 @@ final class ChatTest extends TestCase
 
         $this->assertEquals($data['username'], $chat->username);
         $this->assertEquals($data['photo_url'], $chat->photoUrl);
+        $this->assertInstanceOf(Arrayable::class, $chat);
     }
 }

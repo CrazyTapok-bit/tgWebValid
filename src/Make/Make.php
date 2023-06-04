@@ -2,7 +2,9 @@
 
 namespace TgWebValid\Make;
 
-abstract class Make
+use TgWebValid\Support\Arrayable;
+
+abstract class Make extends Arrayable
 {
     /**
      * @param array<string, int|string|bool> $props
