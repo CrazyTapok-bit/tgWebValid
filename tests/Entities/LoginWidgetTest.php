@@ -4,6 +4,7 @@ namespace TgWebValid\Test\Entities;
 
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\LoginWidget;
+use TgWebValid\Support\Arrayable;
 
 final class LoginWidgetTest extends TestCase
 {
@@ -28,6 +29,7 @@ final class LoginWidgetTest extends TestCase
         $this->assertNull($loginWidget->lastName);
         $this->assertNull($loginWidget->photoUrl);
         $this->assertNull($loginWidget->username);
+        $this->assertInstanceOf(Arrayable::class, $loginWidget);
 
         return $data;
     }
@@ -47,5 +49,6 @@ final class LoginWidgetTest extends TestCase
         $this->assertEquals($data['last_name'], $loginWidget->lastName);
         $this->assertEquals($data['photo_url'], $loginWidget->photoUrl);
         $this->assertEquals($data['username'], $loginWidget->username);
+        $this->assertInstanceOf(Arrayable::class, $loginWidget);
     }
 }

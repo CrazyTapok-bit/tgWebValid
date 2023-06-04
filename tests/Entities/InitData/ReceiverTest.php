@@ -4,6 +4,7 @@ namespace TgWebValid\Test\Entities\InitData;
 
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\InitData\Receiver;
+use TgWebValid\Support\Arrayable;
 
 final class ReceiverTest extends TestCase
 {
@@ -26,6 +27,7 @@ final class ReceiverTest extends TestCase
         $this->assertNull($receiver->username);
         $this->assertNull($receiver->isPremium);
         $this->assertNull($receiver->photoUrl);
+        $this->assertInstanceOf(Arrayable::class, $receiver);
 
         return $data;
     }
@@ -49,5 +51,6 @@ final class ReceiverTest extends TestCase
         $this->assertEquals($data['username'], $receiver->username);
         $this->assertTrue($receiver->isPremium);
         $this->assertEquals($data['photo_url'], $receiver->photoUrl);
+        $this->assertInstanceOf(Arrayable::class, $receiver);
     }
 }

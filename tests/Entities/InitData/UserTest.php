@@ -4,6 +4,7 @@ namespace TgWebValid\Test\Entities\InitData;
 
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\InitData\User;
+use TgWebValid\Support\Arrayable;
 
 final class UserTest extends TestCase
 {
@@ -27,6 +28,7 @@ final class UserTest extends TestCase
         $this->assertNull($user->languageCode);
         $this->assertNull($user->isPremium);
         $this->assertNull($user->photoUrl);
+        $this->assertInstanceOf(Arrayable::class, $user);
 
         return $data;
     }
@@ -52,5 +54,6 @@ final class UserTest extends TestCase
         $this->assertEquals($data['language_code'], $user->languageCode);
         $this->assertFalse($user->isPremium);
         $this->assertEquals($data['photo_url'], $user->photoUrl);
+        $this->assertInstanceOf(Arrayable::class, $user);
     }
 }
