@@ -10,23 +10,30 @@ use TgWebValid\Validator\LoginWidgetValidator;
 final class TgWebValid
 {
     public function __construct(
-        private string $token
+        private string $token,
+        private bool $throw = false
     )
     {
     }
 
-    public function validateInitData(string $initData): InitData|false
+    public function validateInitData(string $initData, ?bool $throw = null): InitData|false
     {
-        $validator = new InitDataValidator($this->token);
+        $validator = new InitDataValidator(
+            $this->token,
+            $throw ?? $this->throw
+        );
         return $validator->validate($initData);
     }
 
     /**
      * @param array<string, int|string|bool> $user
      */
-    public function validateLoginWidget(array $user): LoginWidget|false
+    public function validateLoginWidget(array $user, ?bool $throw = null): LoginWidget|false
     {
-        $validator = new LoginWidgetValidator($this->token);
+        $validator = new LoginWidgetValidator(
+            $this->token,
+            $throw ?? $this->throw
+        );
         return $validator->validate($user);
     }
 }
