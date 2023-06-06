@@ -4,6 +4,7 @@ namespace TgWebValid\Test\Validator;
 
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Entities\InitData;
+use TgWebValid\Exceptions\ValidationException;
 use TgWebValid\Validator\InitDataValidator;
 
 class InitDataValidatorTest extends TestCase
@@ -14,7 +15,7 @@ class InitDataValidatorTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->validator = new InitDataValidator ('5854973744:AAFnq4HoybEzqCJ-8HYHY_zlvkc_-H-kXq4');
+        $this->validator = new InitDataValidator('5854973744:AAFnq4HoybEzqCJ-8HYHY_zlvkc_-H-kXq4');
     }
 
     public function testParse(): void
@@ -41,5 +42,23 @@ class InitDataValidatorTest extends TestCase
         $result = $this->validator->validate($this->initData . '1');
 
         $this->assertFalse($result);
+    }
+
+    public function testException(): void
+    {
+        $this->validator = new InitDataValidator('5854973744:AAFnq4HoybEzqCJ-8HYHY_zlvkc_-H-kXq4', true);
+
+        $this->expectException(ValidationException::class);
+
+        $this->validator->validate($this->initData . '1');
+    }
+
+    public function testNoException(): void
+    {
+        $this->validator = new InitDataValidator('5854973744:AAFnq4HoybEzqCJ-8HYHY_zlvkc_-H-kXq4', true);
+        
+        $result = $this->validator->validate($this->initData);
+
+        $this->assertInstanceOf(InitData::class, $result);
     }
 }

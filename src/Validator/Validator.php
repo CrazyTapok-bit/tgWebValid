@@ -5,7 +5,8 @@ namespace TgWebValid\Validator;
 abstract class Validator
 {
     public function __construct(
-        protected string $token
+        protected string $token,
+        protected bool $throw = false
     )
     {
     }

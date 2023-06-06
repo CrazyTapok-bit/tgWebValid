@@ -3,6 +3,7 @@
 namespace TgWebValid\Validator;
 
 use TgWebValid\Entities\LoginWidget;
+use TgWebValid\Exceptions\ValidationException;
 
 final class LoginWidgetValidator extends Validator
 {
@@ -20,6 +21,9 @@ final class LoginWidgetValidator extends Validator
         $hash    = hashLoginWidget($data, $this->token);
 
         if (!$this->matchHash($hash, $user->hash)) {
+            if ($this->throw) {
+                throw new ValidationException('Telegram Login Widget authentication error. Hash does not match.');
+            }
             return false;
         }
 

@@ -3,6 +3,7 @@
 namespace TgWebValid\Validator;
 
 use TgWebValid\Entities\InitData;
+use TgWebValid\Exceptions\ValidationException;
 
 final class InitDataValidator extends Validator
 {
@@ -18,6 +19,9 @@ final class InitDataValidator extends Validator
         $hash    = hashInitData($data, $this->token);
 
         if (!$this->matchHash($hash, $initData->hash)) {
+            if ($this->throw) {
+                throw new ValidationException('Telegram InitData authentication error. Hash does not match.');
+            }
             return false;
         }
 
