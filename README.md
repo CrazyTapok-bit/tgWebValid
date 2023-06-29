@@ -1,4 +1,4 @@
-# This library performs Telegram user authentication via web app and login widget
+# Library for Telegram WebApp User Validation and Telegram Login Widget for PHP
 [![Testing Status](https://github.com/CrazyTapok-bit/tgWebValid/workflows/PHP%20CI/badge.svg)](https://github.com/CrazyTapok-bit/tgWebValid/actions)
 [![Minimum PHP Version](https://img.shields.io/packagist/dependency-v/tg/tgwebvalid/php)](https://packagist.org/packages/tg/tgwebvalid)
 [![Latest version](https://img.shields.io/packagist/v/tg/tgWebValid)](https://packagist.org/packages/tg/tgwebvalid)
@@ -12,7 +12,7 @@
 ## About TgWebValid
 User authentication occurs by encrypting the received, raw, user data and comparing it with the hash provided by the telegram. A failed check can be equated with a possible attempt to bypass or hack the system.
 
-The library verifies users [Telegram Login Widget](https://core.telegram.org/widgets/login) and [Telegram WebApp](https://core.telegram.org/bots/webapps#initializing-web-apps)
+The library verifies users Telegram Login Widget and Telegram WebApp
 
 `WARNING`: Use user data only after successful authentication
 
@@ -35,12 +35,12 @@ use TgWebValid\TgWebValid;
 
 include './vendor/autoload.php';
 
-$tgWebValid = new TgWebValid('XXX-XXX-XXX');
+$tgWebValid = new TgWebValid('TELEGRAM_BOT_TOKEN');
 ```
 
 Next, you need to decide on the type of authentication you need to do.
-* [WebApp authentication](#telegram-webapp-authentication)
-* [Login Widget authentication](#telegram-login-widget-authentication)
+* WebApp Authentication [Example](#telegram-webapp-authentication)
+* Login Widget Authentication [Example](#telegram-login-widget-authentication)
 
 ## Telegram WebApp authentication
 To perform this type of verification, you should use the `validateInitData` method. Which argument accepts data for processing. If the validation is successful, you will be returned an `InitData` object with the data, or `false` if the validation fails
