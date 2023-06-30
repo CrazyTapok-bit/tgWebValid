@@ -1,4 +1,4 @@
-# Library for Telegram WebApp User Validation and Telegram Login Widget for PHP
+# Library for Telegram Web App User Validation and Telegram Login Widget for PHP
 [![Testing Status](https://github.com/CrazyTapok-bit/tgWebValid/workflows/PHP%20CI/badge.svg)](https://github.com/CrazyTapok-bit/tgWebValid/actions)
 [![Minimum PHP Version](https://img.shields.io/packagist/dependency-v/tg/tgwebvalid/php)](https://packagist.org/packages/tg/tgwebvalid)
 [![Latest version](https://img.shields.io/packagist/v/tg/tgWebValid)](https://packagist.org/packages/tg/tgwebvalid)
@@ -12,7 +12,7 @@
 ## About TgWebValid
 User authentication occurs by encrypting the received, raw, user data and comparing it with the hash provided by the telegram. A failed check can be equated with a possible attempt to bypass or hack the system.
 
-The library verifies users Telegram Login Widget and Telegram WebApp
+The library verifies users Telegram Login Widget and Telegram Web App
 
 `WARNING`: Use user data only after successful authentication
 
@@ -39,10 +39,10 @@ $tgWebValid = new TgWebValid('TELEGRAM_BOT_TOKEN');
 ```
 
 Next, you need to decide on the type of authentication you need to do.
-* WebApp Authentication [Example](#telegram-webapp-authentication)
+* Web App Authentication [Example](#telegram-web-app-authentication)
 * Login Widget Authentication [Example](#telegram-login-widget-authentication)
 
-## Telegram WebApp authentication
+## Telegram Web App authentication
 To perform this type of verification, you should use the `validateInitData` method. Which argument accepts data for processing. If the validation is successful, you will be returned an `InitData` object with the data, or `false` if the validation fails
 
 ```php
@@ -113,10 +113,10 @@ $loginWidget->authDate;
 Our library is autonomous, so it can be used in any frameworks, or without them.
 
 ## Security
-If you discover a security vulnerability in TgWebValid, please [create an issue](https://github.com/CrazyTapok-bit/tgWebValid/issues) with a detailed description. All security vulnerabilities will be fixed immediately. Pull requests are also welcome.
+If you discover a security vulnerability in TgWebValid, please [create an issue](https://github.com/CrazyTapok-bit/tgWebValid/issues) with a detailed description. All security vulnerabilities will be fixed immediately. [Pull requests](https://github.com/CrazyTapok-bit/tgWebValid/fork) are also welcome.
 
 ## Assistance
-We will be glad if you join the development and improvement of the project. You can [create an issue](https://github.com/CrazyTapok-bit/tgWebValid/issues) and/or a pull-request
+We will be glad if you join the development and improvement of the project. You can [create an issue](https://github.com/CrazyTapok-bit/tgWebValid/issues) and/or a [pull request](https://github.com/CrazyTapok-bit/tgWebValid/fork)
 
 ## License
 TgWebValid - is open source software available under the [MIT](LICENSE). See the [license file](LICENSE) for more information.
