@@ -9,7 +9,7 @@ abstract class Make extends Arrayable
     /**
      * @param array<string, int|string|bool> $props
      */
-    public function __construct(array $props)
+    public function __construct(array $props = [])
     {
         foreach ($props as $prop => $value) {
             $this->setProperty(camelize($prop), $value);
