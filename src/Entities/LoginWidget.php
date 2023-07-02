@@ -2,9 +2,10 @@
 
 namespace TgWebValid\Entities;
 
-use TgWebValid\Make\Make;
+use Carbon\CarbonInterface;
+use TgWebValid\Make\LoginWidget as MakeLoginWidget;
 
-final class LoginWidget extends Make
+final class LoginWidget extends MakeLoginWidget
 {
     /**
      * A unique identifier for the user or bot.
@@ -36,7 +37,7 @@ final class LoginWidget extends Make
     /**
      * Unix time when the form was opened.
      */
-    public int $authDate;
+    public CarbonInterface $authDate;
 
     /**
      * A hash of all passed parameters, which the bot server can use to check their validity.

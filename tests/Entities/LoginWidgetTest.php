@@ -22,7 +22,7 @@ final class LoginWidgetTest extends TestCase
 
         $loginWidget = new LoginWidget($data);
 
-        $this->assertEquals($data['auth_date'], $loginWidget->authDate);
+        $this->assertEquals($data['auth_date'], $loginWidget->authDate->unix());
         $this->assertEquals($data['first_name'], $loginWidget->firstName);
         $this->assertEquals($data['hash'], $loginWidget->hash);
         $this->assertEquals($data['id'], $loginWidget->id);

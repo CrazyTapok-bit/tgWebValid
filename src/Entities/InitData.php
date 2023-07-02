@@ -2,6 +2,7 @@
 
 namespace TgWebValid\Entities;
 
+use Carbon\CarbonInterface;
 use TgWebValid\Entities\InitData\Chat;
 use TgWebValid\Entities\InitData\Receiver;
 use TgWebValid\Entities\InitData\User;
@@ -47,7 +48,7 @@ final class InitData extends MakeInitData
     /**
      * Unix time when the form was opened.
      */
-    public int $authDate;
+    public CarbonInterface $authDate;
 
     /**
      * A hash of all passed parameters, which the bot server can use to check their validity.

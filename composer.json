@@ -38,7 +38,8 @@
         "analyze": "phpstan analyze --ansi"
     },
     "require": {
-        "php": ">= 8.0.2"
+        "php": ">= 8.0.2",
+        "nesbot/carbon": "^2.67"
     },
     "config": {
         "sort-packages": true

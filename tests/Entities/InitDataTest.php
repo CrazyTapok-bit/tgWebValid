@@ -22,7 +22,7 @@ final class InitDataTest extends TestCase
 
         $initData = new InitData($data);
 
-        $this->assertEquals($data['auth_date'], $initData->authDate);
+        $this->assertEquals($data['auth_date'], $initData->authDate->unix());
         $this->assertEquals($data['hash'], $initData->hash);
         $this->assertNull($initData->user);
         $this->assertNull($initData->receiver);
