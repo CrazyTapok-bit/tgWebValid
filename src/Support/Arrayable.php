@@ -4,6 +4,7 @@ namespace TgWebValid\Support;
 
 use ReflectionClass;
 use ReflectionProperty;
+use TgWebValid\Make\Make;
 
 abstract class Arrayable
 {
@@ -26,12 +27,7 @@ abstract class Arrayable
             $name = $property->getName();
             $value = $object->$name ?? null;
             $result[$name] = match(true) {
-                is_object($value) => $this->toArray($value),
-                is_array($value) => array_map(function($item) {
-                    return is_object($item)
-                        ? $this->toArray($item)
-                        : $item;
-                }, $value),
+                $value instanceof Make => $this->toArray($value),
                 default => $value
             };
         }

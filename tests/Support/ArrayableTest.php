@@ -3,6 +3,8 @@
 namespace TgWebValid\Test\Support;
 
 use PHPUnit\Framework\TestCase;
+use stdClass;
+use TgWebValid\Make\Make;
 use TgWebValid\Support\Arrayable;
 
 final class ArrayableTest extends TestCase
@@ -58,13 +60,18 @@ final class ArrayableTest extends TestCase
 
     public function testPropertyDeep(): object
     {
-        $user = new class
+        $user = new class ($this->createStdClass()) extends Make
         {
             public int $id;
             public string $firstName = 'Сергій';
+            public function __construct(
+                public stdClass $stdClass
+            )
+            {
+            }
         };
 
-        $initData = new class ($user)
+        $initData = new class ($user) extends Make
         {
             public ?string $queryId = null;
             public function __construct(
@@ -88,7 +95,8 @@ final class ArrayableTest extends TestCase
                 'queryId' => null,
                 'user' => [
                     'id' => null,
-                    'firstName' => 'Сергій'
+                    'firstName' => 'Сергій',
+                    'stdClass' => $this->createStdClass()
                 ]
             ]
         ], $arrayable->toArray());
@@ -107,9 +115,17 @@ final class ArrayableTest extends TestCase
                 'queryId' => null,
                 'user' => [
                     'id' => null,
-                    'firstName' => 'Сергій'
+                    'firstName' => 'Сергій',
+                    'stdClass' => $this->createStdClass()
                 ]
             ]
         ], $arrayable->toArray($object));
+    }
+
+    public function createStdClass(): stdClass
+    {
+        $stdClass = new stdClass;
+        $stdClass->field = 'test';
+        return $stdClass;
     }
 }
