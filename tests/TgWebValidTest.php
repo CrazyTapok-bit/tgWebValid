@@ -36,20 +36,12 @@ final class TgWebValidTest extends TestCase
         $validator = new TgWebValid('5854973744:AAFnq4HoybEzqCJ-8HYHY_zlvkc_-H-kXq4', true);
 
         $this->expectException(ValidationException::class);
-        $validator->validateLoginWidget([
-            'auth_date' => 1679130118,
-            'first_name' => 'Сергій',
-            'hash' => 'e286fe20edabc0f086ba11bad5eead92a67776d01ac97e814ddfb683974d16e9',
-        ]);
+        $validator->validateLoginWidget([]);
     }
 
     public function testGlobalNoExceptionLoginWidget(): void
     {
-        $result = $this->validator->validateLoginWidget([
-            'auth_date' => 1679130118,
-            'first_name' => 'Сергій',
-            'hash' => 'e286fe20edabc0f086ba11bad5eead92a67776d01ac97e814ddfb683974d16e9',
-        ]);
+        $result = $this->validator->validateLoginWidget([]);
         $this->assertFalse($result);
     }
 
@@ -68,20 +60,12 @@ final class TgWebValidTest extends TestCase
     public function testLocalExceptionLoginWidget(): void
     {
         $this->expectException(ValidationException::class);
-        $this->validator->validateLoginWidget([
-            'auth_date' => 1679130118,
-            'first_name' => 'Сергій',
-            'hash' => 'e286fe20edabc0f086ba11bad5eead92a67776d01ac97e814ddfb683974d16e9',
-        ], true);
+        $this->validator->validateLoginWidget([], true);
     }
 
     public function testLocalNoExceptionLoginWidget(): void
     {
-        $result = $this->validator->validateLoginWidget([
-            'auth_date' => 1679130118,
-            'first_name' => 'Сергій',
-            'hash' => 'e286fe20edabc0f086ba11bad5eead92a67776d01ac97e814ddfb683974d16e9',
-        ], false);
+        $result = $this->validator->validateLoginWidget([], false);
         $this->assertFalse($result);
     }
 
@@ -95,11 +79,7 @@ final class TgWebValidTest extends TestCase
     public function testChangeGlobalNoExceptionLoginWidget(): void
     {
         $validator = new TgWebValid('5854973744:AAFnq4HoybEzqCJ-8HYHY_zlvkc_-H-kXq4', true);
-        $result = $validator->validateLoginWidget([
-            'auth_date' => 1679130118,
-            'first_name' => 'Сергій',
-            'hash' => 'e286fe20edabc0f086ba11bad5eead92a67776d01ac97e814ddfb683974d16e9',
-        ], false);
+        $result = $validator->validateLoginWidget([], false);
         $this->assertFalse($result);
     }
 }

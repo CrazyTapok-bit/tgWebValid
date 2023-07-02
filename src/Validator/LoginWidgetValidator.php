@@ -20,7 +20,7 @@ final class LoginWidgetValidator extends Validator
         $data    = $this->implode($rawData);
         $hash    = hashLoginWidget($data, $this->token);
 
-        if (!$this->matchHash($hash, $user->hash)) {
+        if (!$this->matchHash($hash, $user->hash ?? '')) {
             if ($this->throw) {
                 throw new ValidationException('Telegram Login Widget authentication error. Hash does not match.');
             }

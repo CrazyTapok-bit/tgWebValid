@@ -33,11 +33,7 @@ class LoginWidgetValidatorTest extends TestCase
 
     public function testFail(): void
     {
-        $result = $this->validator->validate([
-            'auth_date' => 1679130118,
-            'first_name' => 'Сергій',
-            'hash' => 'e286fe20edabc0f086ba11bad5eead92a67776d01ac97e814ddfb683974d16e9',
-        ]);
+        $result = $this->validator->validate([]);
 
         $this->assertFalse($result);
     }
@@ -48,11 +44,7 @@ class LoginWidgetValidatorTest extends TestCase
 
         $this->expectException(ValidationException::class);
 
-        $this->validator->validate([
-            'auth_date' => 1679130118,
-            'first_name' => 'Сергій',
-            'hash' => 'e286fe20edabc0f086ba11bad5eead92a67776d01ac97e814ddfb683974d16e9',
-        ]);
+        $this->validator->validate([]);
     }
 
     public function testNoException(): void
