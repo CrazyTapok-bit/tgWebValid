@@ -27,6 +27,8 @@ final class InitDataTest extends TestCase
         $this->assertNull($initData->user);
         $this->assertNull($initData->receiver);
         $this->assertNull($initData->chat);
+        $this->assertNull($initData->chatType);
+        $this->assertNull($initData->chatInstance);
         $this->assertNull($initData->queryId);
         $this->assertNull($initData->startParam);
         $this->assertNull($initData->canSendAfter);
@@ -85,6 +87,8 @@ final class InitDataTest extends TestCase
     {
         $data['query_id']       = 'AAE5gYJAAAAAADmBgkBAeZUJ';
         $data['start_param']    = 'start';
+        $data['chat_type']      = 'supergroup';
+        $data['chat_instance']  = 'global';
         $data['can_send_after'] = 300;
 
         $initData = new InitData($data);
@@ -92,6 +96,8 @@ final class InitDataTest extends TestCase
         $this->assertEquals($data['query_id'], $initData->queryId);
         $this->assertEquals($data['start_param'], $initData->startParam);
         $this->assertEquals($data['can_send_after'], $initData->canSendAfter);
+        $this->assertEquals($data['chat_type'], $initData->chatType);
+        $this->assertEquals($data['chat_instance'], $initData->chatInstance);
         $this->assertInstanceOf(Arrayable::class, $initData);
     }
 }

@@ -41,6 +41,19 @@ final class InitData extends MakeInitData
     public ?string $startParam = null;
 
     /**
+     * Optional. Type of the chat from which the Web App was opened.
+     * Can be either “sender” for a private chat with the user opening the link,“private”, “group”, “supergroup”, or “channel”.
+     * Returned only for Web Apps launched from direct links.
+     */
+    public ?string $chatType = null;
+
+    /**
+     * Optional. Global identifier, uniquely corresponding to the chat from which the Web App was opened.
+     * Returned only for Web Apps launched from a direct link.
+     */
+    public ?string $chatInstance = null;
+
+    /**
      * Optional. Time in seconds, after which a message can be sent via the answerWebAppQuery method.
      */
     public ?int $canSendAfter = null;
