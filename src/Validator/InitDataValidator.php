@@ -18,7 +18,7 @@ final class InitDataValidator extends Validator
         $data    = $this->implode($rawData);
         $hash    = hashInitData($data, $this->token);
 
-        if (!$this->matchHash($hash, $initData->hash)) {
+        if (!$this->matchHash($hash, $initData->hash ?? '')) {
             if ($this->throw) {
                 throw new ValidationException('Telegram InitData authentication error. Hash does not match.');
             }
