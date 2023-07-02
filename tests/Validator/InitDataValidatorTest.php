@@ -25,7 +25,7 @@ class InitDataValidatorTest extends TestCase
         $this->assertEquals([
             'query_id' => 'AAE5gYJAAAAAADmBgkD7IagW',
             'user' => '{"id":1082294585,"first_name":"Сергій","last_name":"Засадинський","username":"CrazyTapokUA","language_code":"uk"}',
-            'auth_date' => '1684086610',
+            'auth_date' => 1684086610,
             'hash' => 'f0f336451c74fc794e2b0b9fcaf3e27e16ca74afbfd0958a8d21efd9e8e2b53c'
         ], $parsed);
     }
