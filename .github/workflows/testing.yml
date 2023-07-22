@@ -1,9 +1,13 @@
 name: PHP CI
 
 on:
+  push:
+    branches:
+      - *
   pull_request:
     branches:
       - master
+      - '*.x'
 
 permissions:
   contents: read
