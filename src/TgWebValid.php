@@ -2,13 +2,15 @@
 
 namespace TgWebValid;
 
-use TgWebValid\Entities\InitData;
-use TgWebValid\Entities\LoginWidget;
-use TgWebValid\Validator\InitDataValidator;
-use TgWebValid\Validator\LoginWidgetValidator;
+use TgWebValid\Exceptions\BotException;
 
 final class TgWebValid
 {
+    /**
+     * @var BotConfig[] $bots
+     */
+    private array $bots = [];
+
     public function __construct(
         private string $token,
         private bool $throw = false
@@ -16,24 +18,23 @@ final class TgWebValid
     {
     }
 
-    public function validateInitData(string $initData, ?bool $throw = null): InitData|false
+    public function addBot(BotConfig $bot): void
     {
-        $validator = new InitDataValidator(
-            $this->token,
-            $throw ?? $this->throw
-        );
-        return $validator->validate($initData);
+        $this->bots[$bot->name] = $bot;
     }
 
-    /**
-     * @param array<string, int|string|bool> $user
-     */
-    public function validateLoginWidget(array $user, ?bool $throw = null): LoginWidget|false
+    public function bot(?string $name = null): Bot
     {
-        $validator = new LoginWidgetValidator(
-            $this->token,
-            $throw ?? $this->throw
-        );
-        return $validator->validate($user);
+        if(!$name){
+            return new Bot($this->token, $this->throw);
+        }
+
+        if(!array_key_exists($name, $this->bots)){
+            throw new BotException('Bot [' . $name . '] not found in configuration');
+        }
+
+        $config = $this->bots[$name];
+
+        return new Bot($config->token, $this->throw);
     }
 }
