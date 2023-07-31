@@ -21,9 +21,9 @@ To quickly and safely verify a user, we recommend following a few simple steps
 ## Installation
 You can install the TgWebValid library through the [composer](https://getcomposer.org/) package manager by executing the command 
 ```bash
-composer require tg/tgwebvalid --no-dev
+composer require tg/tgwebvalid
 ```
-With the `--no-dev` flag, only the dependencies needed to run your project in a production environment will be installed.
+Add the --no-dev flag to install only the dependencies needed to run your project in a production environment.
 
 ## Using
 The first thing you need to do is to set in the constructor of the TgWebValid class the token of the Telegram bot on behalf of which authentication is performed by default. And store the result in a variable.
