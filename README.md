@@ -23,7 +23,7 @@ You can install the TgWebValid library through the [composer](https://getcompose
 ```bash
 composer require tg/tgwebvalid
 ```
-Add the --no-dev flag to install only the dependencies needed to run your project in a production environment.
+Add the `--no-dev flag` to install only the dependencies needed to run your project in a production environment.
 
 ## Using
 The first thing you need to do is to set in the constructor of the TgWebValid class the token of the Telegram bot on behalf of which authentication is performed by default. And store the result in a variable.
