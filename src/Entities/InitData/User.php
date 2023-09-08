@@ -48,4 +48,9 @@ final class User extends Make
      * Only returned for Web Apps launched from the attachment menu.
      */
     public ?string $photoUrl = null;
+
+    /**
+     * Optional. Only returned for web applications launched from a direct link.
+     */
+    public ?bool $allows_write_to_pm = null;
 }
