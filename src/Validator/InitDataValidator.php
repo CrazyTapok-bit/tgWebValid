@@ -37,6 +37,7 @@ final class InitDataValidator extends Validator
 
         return array_merge(...array_map(
             function($item) {
+                if(strpos($item, '=') === false) return [];
                 [$prop, $value] = explode('=', $item);
                 return [$prop => $value];
             },
