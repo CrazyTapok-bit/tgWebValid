@@ -44,6 +44,13 @@ class InitDataValidatorTest extends TestCase
         $this->assertFalse($result);
     }
 
+    public function testFailEmpty(): void
+    {
+        $result = $this->validator->validate('');
+
+        $this->assertFalse($result);
+    }
+
     public function testException(): void
     {
         $this->validator = new InitDataValidator('5854973744:AAFnq4HoybEzqCJ-8HYHY_zlvkc_-H-kXq4', true);
