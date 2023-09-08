@@ -1,25 +1,15 @@
 {
     "name": "tg/tgwebvalid",
     "license": "MIT",
-    "description": "This library performs Telegram user authentication via web app and login widget",
+    "description": "Library for Telegram Web App User Validation and Telegram Login Widget for PHP",
     "keywords": [
-        "tgwebvalid",
         "telegram",
-        "telegram auth",
-        "telegram login",
-        "telegram initData",
-        "initData",
-        "telegram webapp",
+        "authentication",
+        "authorization",
+        "login",
         "webapp",
-        "telegram authentication",
-        "telegram authorization",
-        "telegram login widget",
-        "login widget",
-        "telegram validate",
-        "telegram validation",
-        "telegram data validation",
-        "telegram input validation",
-        "telegram web verification"
+        "validation",
+        "verification"
     ],
     "support": {
         "issues": "https://github.com/CrazyTapok-bit/tgWebValid/issues",
@@ -38,7 +28,7 @@
         "analyze": "phpstan analyze --ansi"
     },
     "require": {
-        "php": ">= 8.0.2",
+        "php": "^8.0",
         "nesbot/carbon": "^2.67"
     },
     "config": {
