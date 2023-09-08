@@ -52,5 +52,5 @@ final class User extends Make
     /**
      * Optional. Only returned for web applications launched from a direct link.
      */
-    public ?bool $allows_write_to_pm = null;
+    public ?bool $allowsWriteToPm = null;
 }
