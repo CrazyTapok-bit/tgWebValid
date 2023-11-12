@@ -10,8 +10,8 @@ use TgWebValid\Validator\LoginWidgetValidator;
 class Bot
 {
     public function __construct(
-        private string $token,
-        private bool $throw = false
+        private readonly string $token,
+        private readonly bool $throw = false
     )
     {
     }

@@ -12,8 +12,8 @@ final class TgWebValid
     private array $bots = [];
 
     public function __construct(
-        private string $token,
-        private bool $throw = false
+        private readonly string $token,
+        private readonly bool $throw = false
     )
     {
     }
