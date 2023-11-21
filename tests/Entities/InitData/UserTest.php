@@ -29,6 +29,7 @@ final class UserTest extends TestCase
         $this->assertNull($user->isPremium);
         $this->assertNull($user->photoUrl);
         $this->assertNull($user->allowsWriteToPm);
+        $this->assertNull($user->addedToAttachmentMenu);
         $this->assertInstanceOf(Arrayable::class, $user);
 
         return $data;
@@ -46,6 +47,7 @@ final class UserTest extends TestCase
         $data['language_code'] = 'uk';
         $data['is_premium']    = false;
         $data['allows_write_to_pm'] = true;
+        $data['added_to_attachment_menu'] = true;
         $data['photo_url']     = 'https://t.me/i/userpic/320/7gMg9ZfoSzMQcLwYiEj4rLAofXXn0wOBV9HXGb6c1T0.jpg';
 
         $user = new User($data);
@@ -57,6 +59,7 @@ final class UserTest extends TestCase
         $this->assertFalse($user->isPremium);
         $this->assertEquals($data['photo_url'], $user->photoUrl);
         $this->assertTrue($user->allowsWriteToPm);
+        $this->assertTrue($user->addedToAttachmentMenu);
         $this->assertInstanceOf(Arrayable::class, $user);
     }
 }
