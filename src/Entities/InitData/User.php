@@ -53,4 +53,9 @@ final class User extends Make
      * Optional. Only returned for web applications launched from a direct link.
      */
     public ?bool $allowsWriteToPm = null;
+
+    /**
+     * Optional. True, if this user added the bot to the attachment menu.
+     */
+    public ?bool $addedToAttachmentMenu = null;
 }
