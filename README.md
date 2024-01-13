@@ -45,10 +45,8 @@ If your project uses multiple bots, you can easily interact with them, just add 
 ```php
 <?php
 
-use TgWebValid\BotConfig;
-
-$tgWebValid->addBot(new BotConfig('secondary', 'TELEGRAM_BOT_TOKEN_2'));
-$tgWebValid->addBot(new BotConfig('minor', 'TELEGRAM_BOT_TOKEN_3'));
+$tgWebValid->addBot('secondary', 'TELEGRAM_BOT_TOKEN_2');
+$tgWebValid->addBot('minor', 'TELEGRAM_BOT_TOKEN_3');
 ```
 
 Getting a bot to work is easy. Specify the name of the bot to work with, or leave the argument empty to get the default bot
@@ -136,7 +134,6 @@ $loginWidget->authDate;
 <?php
 
 use TgWebValid\TgWebValid;
-use TgWebValid\BotConfig;
 use TgWebValid\Exceptions\BotException;
 use TgWebValid\Exceptions\ValidationException;
 use Exception;
@@ -147,8 +144,8 @@ try {
     $tgWebValid = new TgWebValid('TELEGRAM_BOT_TOKEN', true);
 
     // Add bots only when needed
-    $tgWebValid->addBot(new BotConfig('secondary', 'TELEGRAM_BOT_TOKEN_2'));
-    $tgWebValid->addBot(new BotConfig('minor', 'TELEGRAM_BOT_TOKEN_3'));
+    $tgWebValid->addBot('secondary', 'TELEGRAM_BOT_TOKEN_2');
+    $tgWebValid->addBot('minor', 'TELEGRAM_BOT_TOKEN_3');
 
     $initData = $tgWebValid->bot()->validateInitData('query_id=...');
 

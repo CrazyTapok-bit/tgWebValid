@@ -18,9 +18,9 @@ final class TgWebValid
     {
     }
 
-    public function addBot(BotConfig $bot): void
+    public function addBot(string $name, string $token): void
     {
-        $this->bots[$bot->name] = $bot;
+        $this->bots[$name] = new BotConfig($name, $token);
     }
 
     public function bot(?string $name = null): Bot

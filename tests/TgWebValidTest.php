@@ -4,7 +4,6 @@ namespace TgWebValid\Test;
 
 use PHPUnit\Framework\TestCase;
 use TgWebValid\Bot;
-use TgWebValid\BotConfig;
 use TgWebValid\Exceptions\BotException;
 use TgWebValid\TgWebValid;
 
@@ -15,8 +14,8 @@ class TgWebValidTest extends TestCase
     public function setUp(): void
     {
         $this->manager = new TgWebValid('DEFAULT_BOT_TOKEN');
-        $this->manager->addBot(new BotConfig('next', 'NEXT_BOT_TOKEN'));
-        $this->manager->addBot(new BotConfig('other', 'OTHER_BOT_TOKEN'));
+        $this->manager->addBot('next', 'NEXT_BOT_TOKEN');
+        $this->manager->addBot('other', 'OTHER_BOT_TOKEN');
     }
 
     public function testWithoutName(): void
