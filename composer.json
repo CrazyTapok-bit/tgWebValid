@@ -1,21 +1,22 @@
 {
     "name": "tg/tgwebvalid",
     "license": "MIT",
-    "description": "Library for Telegram Web App User Validation and Telegram Login Widget for PHP",
+    "description": "An easy way to validate Telegram Login Widget and Telegram Mini App users on your website using PHP",
     "keywords": [
         "telegram",
         "authentication",
         "authorization",
         "login",
+        "auth",
         "webapp",
         "validation",
         "verification"
     ],
+    "homepage": "https://tgwebvalid.com/",
     "support": {
         "issues": "https://github.com/CrazyTapok-bit/tgWebValid/issues",
         "source": "https://github.com/CrazyTapok-bit/tgWebValid",
-        "forum": "https://github.com/CrazyTapok-bit/tgWebValid/discussions",
-        "docs": "https://github.com/CrazyTapok-bit/tgWebValid#readme"
+        "forum": "https://github.com/CrazyTapok-bit/tgWebValid/discussions"
     },
     "authors": [
         {
@@ -30,6 +31,10 @@
     "require": {
         "php": "^8.1",
         "nesbot/carbon": "^2.67"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^9.6"
     },
     "config": {
         "sort-packages": true
@@ -46,9 +51,5 @@
         "psr-4": {
             "TgWebValid\\Test\\": "tests/"
         }
-    },
-    "require-dev": {
-        "phpstan/phpstan": "^1.10",
-        "phpunit/phpunit": "^9.6"
     }
 }
