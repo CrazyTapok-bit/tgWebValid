@@ -12,7 +12,7 @@
         "validation",
         "verification"
     ],
-    "homepage": "https://tgwebvalid.com/",
+    "homepage": "https://tgwebvalid.com/en/",
     "support": {
         "issues": "https://github.com/CrazyTapok-bit/tgWebValid/issues",
         "source": "https://github.com/CrazyTapok-bit/tgWebValid",
@@ -29,7 +29,7 @@
         "analyze": "phpstan analyze --ansi"
     },
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "nesbot/carbon": "^2.67"
     },
     "require-dev": {
