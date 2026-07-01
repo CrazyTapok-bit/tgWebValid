@@ -39,7 +39,7 @@ if (!function_exists('hashInitData')) {
      */
     function hashInitData(string $data, string $token): string
     {
-        $secretKey = hash_hmac('sha256', $token, 'WebAppData', true);
+        $secretKey = hash_hmac('sha256', 'WebAppData', $token, true);
         return bin2hex(hash_hmac('sha256', $data, $secretKey, true));
     }
 }
